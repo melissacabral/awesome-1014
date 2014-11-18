@@ -7,8 +7,14 @@
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 			
-			<?php the_post_thumbnail( 'home-slider' ); //size defined in functions.php ?>
-
+			<?php 
+			//run the slider plugin if it exists
+			if( function_exists( 'rad_slider' ) ){
+				rad_slider();
+			}else{
+				the_post_thumbnail( 'home-slider' ); //size defined in functions.php 
+			} 
+			?>
 			<h2 class="entry-title"> 
 				<a href="<?php the_permalink(); ?>"> 
 					<?php the_title(); ?> 
