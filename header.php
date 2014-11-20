@@ -19,6 +19,22 @@
 <body <?php body_class(); ?>>	
 	<div id="wrapper">
 	<header role="banner">
+
+		<?php $values = get_option( 'rad_company_info_row' ); 
+		if(isset($values)){?>
+		<section class="contact-info">
+			Contact Us: 
+			<tel><a href="tel:<?php echo $values['phone']; ?>">
+				<?php echo $values['phone']; ?>
+			</a></tel>
+
+			<address>
+				<?php echo $values['address']; ?>
+			</address>
+
+			<a href="mailto:<?php echo $values['email']; ?>" >Email Customer Service</a>
+		</section>
+		<?php }//end if there are values ?>
 		<div class="top-bar clearfix">
 
 			<!-- Header image 'logo' added in functions.php -->
